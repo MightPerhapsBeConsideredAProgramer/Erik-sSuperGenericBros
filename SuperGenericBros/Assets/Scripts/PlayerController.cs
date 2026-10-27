@@ -8,10 +8,10 @@ public class PlayerController : MonoBehaviour
     public float JumpSpeed = 7f;
 
     public Rigidbody2D RB;
+    public SpriteRenderer PlayerSprite;
     private float HorizontalMovement;
 
     public Transform GroundCheck;
-
     public LayerMask GroundLayer;
 
     void Update()
@@ -28,6 +28,10 @@ public class PlayerController : MonoBehaviour
     public void Move() 
     {
         RB.linearVelocity = new Vector2(MoveSpeed * HorizontalMovement * Time.deltaTime, RB.linearVelocity.y);
+        if (HorizontalMovement  > 0 ) 
+            PlayerSprite.flipX = false;
+        if (HorizontalMovement  < 0 ) 
+            PlayerSprite.flipX = true;
     }
     
     public void Jump()

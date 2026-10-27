@@ -16,7 +16,7 @@ public class EnemyMovement : MonoBehaviour
 
         if (transform.position.x >= StartPos.position.x + Distance -0.1f)
             EnemySprite.flipX = false;
-        if (transform.position.x <= StartPos.position.x)
+        if (transform.position.x <= StartPos.position.x + 0.1f)
             EnemySprite.flipX = true;
     }
 }
