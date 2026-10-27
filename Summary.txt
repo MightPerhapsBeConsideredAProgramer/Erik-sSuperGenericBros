@@ -1,0 +1,13 @@
+started by cloning the treachers repo to get the assets for my game.
+
+when i was making that repo i installed git lfs and made it track the .exe
+then i invited him to into the repo.
+
+after that i open the game in unity in which i may or may not hav installed the wrong unity verson by mistake.
+
+after opening the project i found that my .gitignore included the libary files that unity generates.
+
+after adding ** to any line that had a / and it fixed the .gitignore (hopefully)
+
+its now around 9:30 and i am going to start with the actual objective now.
+which is going to start by making a player charater and a gomba-like enemy
