@@ -40,3 +40,12 @@ but beside the fact that there was no funtion for quiting the game inside the me
 That and how the menu controller asks for a string inside the unity editor instead of using the name of the scene directly inside the script.
 
 but in short before the lunch break i have made a player, a controller script for the player, an enemy, a health system and now a functioning menu.
+
+att 13.16 i added the gameover and win screens though none of the button have any functions yet.
+
+as of 13:40 i have added said funtionality. Meaning that now the player can die, get a gameover and then restart the game to try again.
+
+
+Now all that is missing is some other hazard for the player and lastly. a way to win the game. 
+after that all i need to do is put these systems i have made together to get 45 to 90 seconds of gameplay and i sould be golden.
+

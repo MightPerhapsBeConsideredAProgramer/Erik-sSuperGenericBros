@@ -15,16 +15,19 @@ public class GameManager : MonoBehaviour
     
     void Update()
     {
-        if (PlayerHealth.CurrentHealth <= 0)
+        if (PlayerHealth.CurrentHealth <= 0 && GameCurrentState == GameState.Running)
         {
             PRH.StartCoroutine("PlayerDeath");
         }
 
-
+        if (GameCurrentState == GameState.Won)
+        {
+            PRH.StartCoroutine("Win");
+        }
     }
 }
 
 public enum GameState
 {
-    Running,Stopped
+    Running,Stopped,Won
 }
