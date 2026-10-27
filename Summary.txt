@@ -11,3 +11,11 @@ after adding ** to any line that had a / and it fixed the .gitignore (hopefully)
 
 its now around 9:30 and i am going to start with the actual objective now.
 which is going to start by making a player charater and a gomba-like enemy
+
+
+its now 10:24 and i have finished the player controller script. 
+i used the method JC showed in the last leson to use physics2d.overlapCircle
+to see if the player has hit the ground or not.
+i intend to use this same trick for another enemy if i have the time.
+
+But the next point of intest is to make an enemy and let them move back and forward.
