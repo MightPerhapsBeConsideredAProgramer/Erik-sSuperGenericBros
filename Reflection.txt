@@ -1,0 +1,6 @@
+its 15:46 when i was writing now and i think i am as close as i could get to meeting all the criteria that where presented. The game has a player, an enemy, another hazard for the player to avoid
+it has a death screen for when you run out of hp. Its got a win screen for when you reach the end. and hopefully the game will be a bit longer than 45 seconds.
+
+as for things i could have done if i had the time would probaly be moving backgrounds. and some way to kill some of the enemies that you encounter.
+
+i hope my game works

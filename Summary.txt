@@ -48,4 +48,3 @@ as of 13:40 i have added said funtionality. Meaning that now the player can die,
 
 Now all that is missing is some other hazard for the player and lastly. a way to win the game. 
 after that all i need to do is put these systems i have made together to get 45 to 90 seconds of gameplay and i sould be golden.
-
