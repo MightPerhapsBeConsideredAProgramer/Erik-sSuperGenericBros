@@ -16,10 +16,18 @@ public class Health : MonoBehaviour
     private void Update()
     {
         if (InvonrabilityTime >= Time.time)
+        {
             DamageIndicator.SetActive(true);
+            PlayerSprite.color = Color.red;
+        }
+
 
         if (InvonrabilityTime < Time.time)
+        {
             DamageIndicator.SetActive(false);
+            PlayerSprite.color = Color.white;
+        }
+
     }
 
 
@@ -27,9 +35,6 @@ public class Health : MonoBehaviour
     {
         if (InvonrabilityTime >= Time.time)
             return;
-        
-
-
 
         InvonrabilityTime = Time.time + InvonrabilityDuration;
 
