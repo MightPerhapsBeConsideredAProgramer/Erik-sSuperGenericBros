@@ -25,3 +25,18 @@ The best way to do this from my memory is to make a health system and lower it e
 
 its 11:17 and i have finished the health Script and started to work on the GameManager.
 Though now i realise i probaly sould make a simple script that checks if the player has collided with an object and does damage or instantly kills them.
+
+
+
+its now 11:36 and i have added a way for the player to take damage now.
+The next course of action is to make a Game over system for my game. which namely stops the player. lets them restart the game. go to the main menu. or just quit the game.
+this means that the next clear course of action is to make or look att the menu scene that JC had premade for this. Though its likely going to be replaced.
+after that i can quite easily make a game over screen which i can later even reuse to make the win screen since they dont really need very different scripts or funtions.
+
+
+its 11:55 and i have fixed the problems i noticed with the Menu Controller such as how the object menu controller in the scene didnt have the script menu controller.
+
+but beside the fact that there was no funtion for quiting the game inside the menu controller.
+That and how the menu controller asks for a string inside the unity editor instead of using the name of the scene directly inside the script.
+
+but in short before the lunch break i have made a player, a controller script for the player, an enemy, a health system and now a functioning menu.
