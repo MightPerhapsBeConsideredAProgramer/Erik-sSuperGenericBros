@@ -19,3 +19,9 @@ to see if the player has hit the ground or not.
 i intend to use this same trick for another enemy if i have the time.
 
 But the next point of intest is to make an enemy and let them move back and forward.
+
+its 10:50 and i have added this script into my game. The next big goal is to add a way for the player to die.
+The best way to do this from my memory is to make a health system and lower it every time the player hits an enemy.
+
+its 11:17 and i have finished the health Script and started to work on the GameManager.
+Though now i realise i probaly sould make a simple script that checks if the player has collided with an object and does damage or instantly kills them.

@@ -5,6 +5,7 @@ public class Health : MonoBehaviour
     public int MaxHealth;
     public int CurrentHealth;
 
+    public HealthUI HealthUI;
 
     public void TakeDamage(int damage)
     {
@@ -20,5 +21,7 @@ public class Health : MonoBehaviour
         if (Value >= MaxHealth) return;
 
         CurrentHealth = Value;
+
+        HealthUI.UpdateHealthUI(CurrentHealth);
     }
 }
