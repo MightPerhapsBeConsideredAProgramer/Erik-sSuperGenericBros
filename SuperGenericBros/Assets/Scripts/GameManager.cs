@@ -3,12 +3,12 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public Health PlayerHealth;
+    public PlayerRespawnHandler PRH;
 
     public GameState GameCurrentState = GameState.Running;
-    public bool IsPlayerAlive;
     void Start()
     {
-        IsPlayerAlive = true;
+        PRH.StartCoroutine("StartGame");
         PlayerHealth.HealthUI.UpdateHealthUI(PlayerHealth.MaxHealth);
     }
 
@@ -17,13 +17,10 @@ public class GameManager : MonoBehaviour
     {
         if (PlayerHealth.CurrentHealth <= 0)
         {
-            IsPlayerAlive = false;
+            PRH.StartCoroutine("PlayerDeath");
         }
-        if (!IsPlayerAlive)
-        {
-            Debug.Log("Player is dead");
-            GameCurrentState = GameState.Stopped;
-        }
+
+
     }
 }
 
