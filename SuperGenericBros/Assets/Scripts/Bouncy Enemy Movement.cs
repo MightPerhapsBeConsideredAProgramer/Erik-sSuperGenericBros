@@ -19,20 +19,29 @@ public class BouncyEnemyMovement : MonoBehaviour
     private void FixedUpdate()
     {
         if (!GoLeft)
-            transform.position = new Vector2(Time.deltaTime * -HorizontalSpeed, transform.position.y);
+            RB.linearVelocity = new Vector2(Time.deltaTime * -HorizontalSpeed, RB.linearVelocity.y);
         if (GoLeft)
-            transform.position = new Vector2(Time.deltaTime * HorizontalSpeed, transform.position.y);
+            RB.linearVelocity = new Vector2(Time.deltaTime * HorizontalSpeed, RB.linearVelocity.y);
         if (!GoUpward)
-            transform.position = new Vector2(transform.position.x, Time.deltaTime * -VerticalSpeed);
+            RB.linearVelocity = new Vector2(RB.linearVelocity.x, Time.deltaTime * -VerticalSpeed);
         if (GoUpward)
-            transform.position = new Vector2(transform.position.x, Time.deltaTime * VerticalSpeed);
+            RB.linearVelocity = new Vector2(RB.linearVelocity.x, Time.deltaTime * VerticalSpeed);
     }
 
     void Update()
     {
         bool HitUp = Physics2D.OverlapCircle(UpCheck.position, 0.1f, GroundLayer);
-        bool Hitdown = Physics2D.OverlapCircle(DownCheck.position, 0.1f, GroundLayer);
-        bool Hitleft = Physics2D.OverlapCircle(LeftCheck.position, 0.1f, GroundLayer);
-        bool Hitright = Physics2D.OverlapCircle(RightCheck.position, 0.1f, GroundLayer);
+        bool HitDown = Physics2D.OverlapCircle(DownCheck.position, 0.1f, GroundLayer);
+        bool HitLeft = Physics2D.OverlapCircle(LeftCheck.position, 0.1f, GroundLayer);
+        bool HitRight = Physics2D.OverlapCircle(RightCheck.position, 0.1f, GroundLayer);
+
+        if(HitUp)
+            GoUpward = false;
+        if(HitDown)
+            GoUpward = true;
+        if(HitRight)
+            GoLeft = false;
+        if(HitLeft)
+            GoLeft = true;
     }
 }
