@@ -9,8 +9,6 @@ public class Health : MonoBehaviour
 
     private float InvonrabilityTime;
 
-    public HealthUI HealthUI;
-
     public GameObject DamageIndicator;
 
     private void Update()
@@ -30,7 +28,6 @@ public class Health : MonoBehaviour
 
     }
 
-
     public void TakeDamage(int damage)
     {
         if (InvonrabilityTime >= Time.time)
@@ -38,20 +35,14 @@ public class Health : MonoBehaviour
 
         InvonrabilityTime = Time.time + InvonrabilityDuration;
 
-
         if (damage <= 0) return;
 
-        SetHealth(CurrentHealth - damage);
+        SetHealth(CurrentHealth - 1);
     }
-
-
-
     public void SetHealth(int Value)
     {
         if (Value >= MaxHealth) return;
 
         CurrentHealth = Value;
-
-        HealthUI.UpdateHealthUI(CurrentHealth);
     }
 }

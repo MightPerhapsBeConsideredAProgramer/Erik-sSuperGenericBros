@@ -3,11 +3,19 @@ using UnityEngine;
 
 public class HealthUI : MonoBehaviour
 {
+    private Health PlayerHealth;
     public TextMeshProUGUI HealthText;
 
-    public void UpdateHealthUI(int health)
+    private void Start()
     {
-        HealthText.text = health.ToString();
+        PlayerHealth = GameObject.FindWithTag("Player").GetComponent<Health>();
+
+        HealthText.text = PlayerHealth.CurrentHealth.ToString();
+    }
+
+    public void UpdateHealthUI()
+    {
+        HealthText.text = PlayerHealth.CurrentHealth.ToString();
     }
 
 }

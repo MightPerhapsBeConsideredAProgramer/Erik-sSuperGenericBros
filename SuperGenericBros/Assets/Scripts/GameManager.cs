@@ -9,7 +9,6 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         PRH.StartCoroutine("StartGame");
-        PlayerHealth.HealthUI.UpdateHealthUI(PlayerHealth.MaxHealth);
     }
 
     

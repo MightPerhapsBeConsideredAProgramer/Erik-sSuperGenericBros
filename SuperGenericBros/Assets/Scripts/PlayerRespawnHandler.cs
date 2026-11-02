@@ -6,6 +6,8 @@ public class PlayerRespawnHandler : MonoBehaviour
     public PlayerController PlayerMovement;
     public GameManager GM;
 
+    public HealthUI HealthUI;
+
     public GameObject GameOverScreen;
     public GameObject WinScreen;
 
@@ -45,6 +47,7 @@ public class PlayerRespawnHandler : MonoBehaviour
 
         HealthDisplay.SetActive(true);
         Time.timeScale = 1.0f;
+        HealthUI.UpdateHealthUI();
         yield return null;
     }
 }
