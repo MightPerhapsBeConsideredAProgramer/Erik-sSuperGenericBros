@@ -1,0 +1,23 @@
+Inside this text document i talk about every technical choice i made when making this game. If you are not personally intressted in such details just close and delete this text file.
+
+
+
+
+for those who would like to know such details:
+
+My game is compossed of two unity scenes and 10 scripts.
+
+these 10 scripts include:
+two different kinds of enemy movement. a normal left and right, and a script made for a bouncy ball enemy i made.
+
+two Scripts affect the players health. and the UI for the Players health.
+One of these is Health.cs which is the script in the game which has the players health. it has two variables. Max health. and Current health. along with two methods
+These methods are SetHealth and TakeDamage
+
+there is just one script which the enemies use to damage the player. with a varible for instantly killing the player. 
+(As a note here. Becouse of how i set up the health script with two methods. one for setting the players health to a number and the other for reducing the players health by a number.
+that Means the instant kill version of the player damaging script (Which uses the set health method instead of the deal damage method) totaly ignores the deal damage method 
+(which i added things like Invulnerability seconds to so you dont get oblitarated by runing though multiple enemies att once) which means you could walk though an enemy. then walk into an inta killing enemy and instantly die)
+
+
+
