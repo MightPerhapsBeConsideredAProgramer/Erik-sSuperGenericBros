@@ -37,7 +37,7 @@ public class Health : MonoBehaviour
 
         if (damage <= 0) return;
 
-        SetHealth(CurrentHealth - 1);
+        SetHealth(CurrentHealth - damage);
     }
     public void SetHealth(int Value)
     {
