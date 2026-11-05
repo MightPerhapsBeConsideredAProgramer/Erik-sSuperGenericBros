@@ -29,21 +29,22 @@ if i am to make further changes to the game this will likely be among the first 
 
 
 
-there is one script which the enemies use to damage the player. The PlayerHurterScript.cs which has a varible for instantly killing the player and an int for the damage the player sould take. 
-it works by taking in Health.cs via GameManager.cs which is gotten by using FindWithTag to get the GameManager which i gave its own unique tag.
+there is one script which the enemies use to damage the player which is: PlayerHurterScript.cs which has an int varible for the amount of damage an enemy does and a bool for instantly killing the player. 
+it works by taking in Health.cs via GameManager.cs which is gotten by using FindWithTag to get the GameManager which i gave its own unique tag. 
 
-then inside OnCollisionEnter2D or OnTriggerEnter2D to see if a player has collided/entered this object there is a compareTag to see if the player has collided or not. and if the player has 
-
+then inside OnCollisionEnter2D or OnTriggerEnter2D to see if a player has collided/entered this object there is a compareTag to see if the player has collided or not. 
+and if the player has collided with them they call upon GameManager.cs to make Health.cs call the damage method with however much damage the enemy has.
 
 (As a note here. Becouse of how i set up the health script with two methods. one for setting the players health to a number and the other for reducing the players health by a number.
 that Means the instant kill version of the player damaging script (Which uses the set health method instead of the deal damage method) totaly ignores the deal damage method 
 (which i added things like Invulnerability time to so you dont get oblitarated by runing though multiple enemies att once) which means you could walk though an enemy. then walk into an inta killing enemy and instantly die)
 
 
+
 GameManager.cs is the state machine behind the game. It works by having an enum with three states. Running, Stopped, and Won. These states are checked inside two if statements inside the GameManagers default unity update method
-these if statements check two simple things. IS the player alive and Has the player Won?
-if the players health dips to 0 then it calls upon the StartCoroutine PlayerDeath from the "PRH" or "Player Respawn Handler"
-and if the enum "GameState" becomes "won" 
+these if statements check two simple things. IS the player alive? Which it does by having Health.cs (Which was dropped in via the unity editor along with the PlayerRespawnHandler.cs) 
+if the player's health dips to 0 while the GameState is "running" then it calls upon the StartCoroutine PlayerDeath from the "PRH" or "Player Respawn Handler" to activate the gamover screen and turn the game state to "stopped" to stop the corutine from being invoked every frame.
+and if the enum "GameState" becomes "won" it does nearly the exact same thing. Exect the PlayerRespawnHandler turns on the WinScreen before setting the GameState to Stopped.
 
 
 
@@ -51,19 +52,11 @@ the player respawn handler
 
 
 
-
-
 the menu controler
 
 
 
-
-
-
 the winpad script.
-
-
-
 
 
 
