@@ -9,15 +9,39 @@ My game is compossed of two unity scenes and 10 scripts.
 
 these 10 scripts include:
 two different kinds of enemy movement. a normal left and right, and a script made for a bouncy ball enemy i made.
+the normal enemy movement uses PingPong to offset the enemies position from a public starting position. This script also takes in the enemies sprite and flips it when it is very close to fliping around. 
+
+the bouncy ball script.
 
 two Scripts affect the players health. and the UI for the Players health.
 One of these is Health.cs which is the script in the game which has the players health. it has two variables. Max health. and Current health. along with two methods
-These methods are SetHealth and TakeDamage
+These methods are SetHealth and TakeDamage.
+
+as for the healthUI script it has a method that is called via an event by the enemy damage script.
+Notably this is the first time i have used the event method and i realised a bit later that this is quite dum and how letting every enemy in the game need to call on an event rather than that same event just
 
 there is just one script which the enemies use to damage the player. with a varible for instantly killing the player. 
 (As a note here. Becouse of how i set up the health script with two methods. one for setting the players health to a number and the other for reducing the players health by a number.
 that Means the instant kill version of the player damaging script (Which uses the set health method instead of the deal damage method) totaly ignores the deal damage method 
 (which i added things like Invulnerability seconds to so you dont get oblitarated by runing though multiple enemies att once) which means you could walk though an enemy. then walk into an inta killing enemy and instantly die)
+
+
+the gamemanager
+
+
+the menu controler
+
+
+the player respawn handler
+
+
+
+the winpad script.
+
+
+
+
+the player controller
 
 
 
