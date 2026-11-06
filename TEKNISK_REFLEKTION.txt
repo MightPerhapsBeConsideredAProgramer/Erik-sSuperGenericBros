@@ -73,13 +73,13 @@ PlayerRespawnHandler.cs is a rather simple script/klass. It has are three coruti
 "StartGame" just does the oposate, Triggered by void start inside the GameManager, it sets the GameState to "Running", sets the time scale to 1, and turns off any gameover/WinScreen while turning on the HealthUI
 
 
+
+
 MenuManager.cs is a klass that only has three methods. and is also whats used in every menu in the game. namely these methods are:
 
 StartGame which just loads the GameScene using the unity sceneManager and since i didnt touch since i started this project, and thus needs to be feed the name of the GameScene inside the unity editor.
-
 MenuButton, which just loads the menu scene, without needing any input via the unity editor.
-
-and the Quitbutton. Which uses Application.Quit(); to turn off the game. Though an error that did pop up was how renaming this method did break the quit button in the main menu, but i have since fixed that bug.
+and the Quitbutton. Which uses Application.Quit(); to turn off the game. Though an error that did pop up was when renaming this method did break the quit button in the main menu since it was trying to refer to a method that no longer existed, but i have since fixed that bug.
 
 
 
@@ -90,7 +90,14 @@ and then changes the GameState inside GameManager to "won" to end the game.
 
 
 
-the player controller
+PlayerController.cs is the script responsable for player movement. With two public floats for the players speed and jump height, 
+the player movement is divided between the method Jump inside update, and "Move" inside fixed update.
+
+Move uses RigidBody.linearVelocity to change the linearVelocity along the x axis. and using a float inside the update funtion to see if the player is meant to move forwards or backwards by using "Input.GetAxisRaw("Horizontal");" 
+inside movement i also added two if statements to see if "Input.GetAxisRaw("Horizontal");" was positive or negate to then flip the player sprite acordingly.
+
+Physics2D.OverlapCircle is used to see if the player is on valid ground, and if they are then the players Linear y Velocity will be set to the jumpheight making the player jump
+also of note is how att the start of the jump method is a check to see if the input is spacebar, and if it isnt then nothing else happens in the program.
 
 
 
