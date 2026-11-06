@@ -10,10 +10,26 @@ My game is compossed of two unity scenes and 10 scripts.
 these 10 scripts include:
 
 
-two different kinds of enemy movement. a normal left and right, and a script made for a bouncy ball enemy i made.
-the normal enemy movement uses PingPong to offset the enemies position from a public starting position. This script also takes in the enemies sprite and flips it when it is very close to fliping around. 
 
-the bouncy ball script.
+two different kinds of enemy movement. a normal left and right, and a script made for a bouncy ball enemy i made.
+
+the normal enemy movement known as EnemyMovement.cs which takes in a transform (or posistion of another object in the game) to be used as the startposition for the enemy, along with two floats (numbers that can have Decimal units) for the distance that the enemy will move from the start position
+and the second Float number is for the enemies Speed. Which is used to change how fast the Enemy moves back and forth.
+how it works is by using mathf.PingPong to make an offset for the enemy which is then used to update the enemies position.
+
+though a mistake a noticed is how i sould have used Time.Fixedtime instead of just Time.time since i put the Mathf.PingPong inside of FixedUpdate. I dont quite understand what the differnce between these methods actualy are. Just that it was more prefered to use methods/funtions that are made specificly for FixedUpdate
+though i didnt see any problem with how the game was running. But i will need to remind myself to not make similar mistakes later since often a small mistake like this can be very bad later when your programing.
+
+
+asfor the second enemy movement script, BouncyEnemyMovement.cs takes the ground check used by PlayerController.cs in four directions to see if they have hit a wall or not. 
+
+in short every frame Physics2D.OverlapCircle is used to check if the player has hit a wall on either the left, right, up, or down. and if they find that the bouncy ball has hit one of these sides. 
+one of the bools GoLeft or GoUpward gets turned on or off. Notably i did very possibly mix up the left and right directions that the bouncy ball is supossed to move. but i did fix it. 
+with the consequense that now if the check on the left is triggered, then GoLeft is TURNED ON and if the check on the right is triggered then GoLeft is TURNED OFF.
+and also to make the bouncy enemy move i used RigidBody.linearVelocity to change the Velocity the bouncy enemy has. Though i did make the same mistake as in EnemyMovement.cs by using Time.deltaTime inside FixedUpdate instead of Time.fixedDeltaTime
+though much like in EnemyMovement.cs i didnt notice that this may be a problem until i learned that there was a version meant to be used in FixedUpdate.
+dispite those details i am quite happy with how this script works, even though i could have used a physics material to possibly make the exact same bouncy effect.
+
 
 
 
@@ -29,6 +45,7 @@ if i am to make further changes to the game this will likely be among the first 
 
 
 
+
 there is one script which the enemies use to damage the player which is: PlayerHurterScript.cs which has an int varible for the amount of damage an enemy does and a bool for instantly killing the player. 
 it works by taking in Health.cs via GameManager.cs which is gotten by using FindWithTag to get the GameManager which i gave its own unique tag. 
 
@@ -41,22 +58,35 @@ that Means the instant kill version of the player damaging script (Which uses th
 
 
 
-GameManager.cs is the state machine behind the game. It works by having an enum with three states. Running, Stopped, and Won. These states are checked inside two if statements inside the GameManagers default unity update method
+
+GameManager.cs is the state machine behind the game. It works by having a public enum with three states. Running, Stopped, and Won. These states are checked inside two if statements inside the GameManagers default unity update method
 these if statements check two simple things. IS the player alive? Which it does by having Health.cs (Which was dropped in via the unity editor along with the PlayerRespawnHandler.cs) 
-if the player's health dips to 0 while the GameState is "running" then it calls upon the StartCoroutine PlayerDeath from the "PRH" or "Player Respawn Handler" to activate the gamover screen and turn the game state to "stopped" to stop the corutine from being invoked every frame.
-and if the enum "GameState" becomes "won" it does nearly the exact same thing. Exect the PlayerRespawnHandler turns on the WinScreen before setting the GameState to Stopped.
+if the player's health dips to 0 while the GameState is "running" then it calls upon the StartCoroutine PlayerDeath from the "PRH" or "Player Respawn Handler" to activate the gameover screen and turn the game state to "stopped" to stop the corutine from being invoked every frame.
+and if the enum "GameState" becomes "won" it does nearly the exact same thing. Expect the PlayerRespawnHandler turns on the WinScreen before setting the GameState to Stopped.
 
 
 
-the player respawn handler
+
+PlayerRespawnHandler.cs is a rather simple script/klass. It has are three corutines, which are: "PlayerDeath", "Win" and "StartGame".
+"PlayerDeath" and "Win" do nearly the exact same thing. they turn off the player controller, the HealthUI, change the GameManager's GameState to "Stopped", change the timescale to 0, and then turn on either the win or gameover screen depending on which corutine was triggered while turning off the other.
+
+"StartGame" just does the oposate, Triggered by void start inside the GameManager, it sets the GameState to "Running", sets the time scale to 1, and turns off any gameover/WinScreen while turning on the HealthUI
+
+
+MenuManager.cs is a klass that only has three methods. and is also whats used in every menu in the game. namely these methods are:
+
+StartGame which just loads the GameScene using the unity sceneManager and since i didnt touch since i started this project, and thus needs to be feed the name of the GameScene inside the unity editor.
+
+MenuButton, which just loads the menu scene, without needing any input via the unity editor.
+
+and the Quitbutton. Which uses Application.Quit(); to turn off the game. Though an error that did pop up was how renaming this method did break the quit button in the main menu, but i have since fixed that bug.
 
 
 
-the menu controler
 
+the winpad script. this is perhaps the simplest script is the game. All it does is check if the player has collided with it using the same method that PlayerHurterScript.cs uses
+and then changes the GameState inside GameManager to "won" to end the game.
 
-
-the winpad script.
 
 
 
