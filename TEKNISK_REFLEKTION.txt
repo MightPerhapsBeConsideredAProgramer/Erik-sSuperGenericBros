@@ -88,3 +88,4 @@ Move uses RigidBody.linearVelocity to change the linearVelocity along the x axis
 
 Physics2D.OverlapCircle is used to see if the player is on valid ground, and if they are then the players Linear y Velocity will be set to the jumpheight making the player jump
 also of note is how att the start of the jump method is a check to see if the input is spacebar, and if it isnt then nothing else happens in the program.
+
