@@ -5,7 +5,7 @@ Inside this text document i talk about every technical choice i made when making
 
 for those who would like to know such details:
 
-My game is compossed of two unity scenes and 10 scripts.
+My game is composed of two unity scenes and 10 scripts.
 
 these 10 scripts include:
 
@@ -17,7 +17,7 @@ the normal enemy movement known as EnemyMovement.cs which takes in a transform (
 and the second Float number is for the enemies Speed. Which is used to change how fast the Enemy moves back and forth.
 how it works is by using mathf.PingPong to make an offset for the enemy which is then used to update the enemies position.
 
-though a mistake a noticed is how i sould have used Time.Fixedtime instead of just Time.time since i put the Mathf.PingPong inside of FixedUpdate. I dont quite understand what the differnce between these methods actualy are. Just that it was more prefered to use methods/funtions that are made specificly for FixedUpdate
+though a mistake i noticed is how i should have used Time.Fixedtime instead of just Time.time since i put the Mathf.PingPong inside of FixedUpdate. I dont quite understand what the differnce between these methods actualy are. Just that it was more prefered to use methods/funtions that are made specificly for FixedUpdate
 though i didnt see any problem with how the game was running. But i will need to remind myself to not make similar mistakes later since often a small mistake like this can be very bad later when your programing.
 
 
